@@ -1,5 +1,7 @@
 package com.ing.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,10 @@ public class UserServiceImp implements UserService {
 		repo.updateAccount(request.getUserId(), request.getStatus());
 		return response;
 	}
+
+	//@Override
+	 public List<Account> findAll() {
+	  return repo.findAll();
+	 }
 
 }

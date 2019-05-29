@@ -14,6 +14,44 @@ import javax.persistence.Table;
 public class Account implements Serializable {
 	
 
+	public Account(Integer id, String firstName, String lastName, Long mobile, String userName, String pan,
+			String password, String accountType, Double balance, String status, String updatedBy, String emailId) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobile = mobile;
+		this.userName = userName;
+		this.pan = pan;
+		this.password = password;
+		this.accountType = accountType;
+		this.balance = balance;
+		this.status = status;
+		this.updatedBy = updatedBy;
+		this.emailId = emailId;
+	}
+
+	public Account() {
+		super();
+	}
+
+
+
+	public Account(Integer id, String firstName, String lastName, String userName, String password, String accountType,
+			Double balance, String emailId) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.accountType = accountType;
+		this.balance = balance;
+		this.emailId = emailId;
+	}
+
+
+
 	/**
 	 * 
 	 */
