@@ -11,7 +11,8 @@ import com.ing.entity.Transaction;
 @Repository
 public interface TransactionDao extends JpaRepository<Transaction,Integer>{
 
-	@Query(value = "select * from transaction where user_id=?1",nativeQuery = true)
-	List<Transaction> findTransactionsById(int id);
+	
+	@Query(value = "select * from transaction where user_id=?1  and date between ?2 and ?3",nativeQuery = true)
+	 List<Transaction> findTransactionsById(int id, String fromDate, String toDate);
 
 }

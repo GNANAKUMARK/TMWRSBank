@@ -8,6 +8,7 @@ public interface FundTransferService {
 
 	String saveTransaction(Transaction transaction);
 
-	List<Transaction> getTransactions(int id);
+
+	List<Transaction> getTransactions(int id, String fromDate, String toDate);
 
 }

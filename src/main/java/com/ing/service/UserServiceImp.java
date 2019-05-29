@@ -34,7 +34,8 @@ public class UserServiceImp implements UserService {
 		account.setPassword(request.getPassword());
 		account.setStatus(UtilConstants.DEFAULT_STATUS);
 		account.setUserName(request.getUserName());
-		repo.save(account);
+		 account = repo.save(account);
+		response.setUserId(account.getId());
 		return response;
 	}
 

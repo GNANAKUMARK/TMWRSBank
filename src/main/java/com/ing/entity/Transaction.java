@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Transaction {
+	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -17,6 +20,7 @@ public class Transaction {
 	private double amount;
 	private String transactionType;
 	private String bankName;
+	@JsonIgnore
 	private Date date= new Date();
 	private int userId;
 	public int getId() {

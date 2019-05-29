@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class UserController {
 		SaveAccountResponse response = new SaveAccountResponse();
 		String msg = "Success";
 		try {
-			service.saveAccount(request);
+			response=service.saveAccount(request);
 		} catch(Exception e) {
 			msg = "Failure";
 		}
@@ -77,6 +78,11 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("/gettransaction/{id}/{fromDate}/{toDate}")
+	 public List<Transaction> getTransactions(@PathVariable("id") int id,@PathVariable("fromDate") String fromDate,@PathVariable("toDate") String toDate){
+	  
+	  return fundService.getTransactions(id,fromDate,toDate);
+	 }
 
 	
 
