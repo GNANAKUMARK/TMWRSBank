@@ -1,5 +1,7 @@
 package com.ing.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,9 +9,11 @@ import com.ing.dao.UserDao;
 import com.ing.entity.Account;
 import com.ing.request.SaveAccountRequest;
 import com.ing.response.SaveAccountResponse;
+import com.ing.response.UpdateAccountRequest;
 import com.ing.utils.UtilConstants;
 
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 	@Autowired
 	UserDao repo;
@@ -29,6 +33,13 @@ public class UserServiceImp implements UserService {
 		account.setStatus(UtilConstants.DEFAULT_STATUS);
 		account.setUserName(request.getUserName());
 		repo.save(account);
+		return response;
+	}
+
+	@Override
+	public SaveAccountResponse updateAccount(UpdateAccountRequest request) {
+		SaveAccountResponse response = new  SaveAccountResponse();
+		repo.updateAccount(request.getUserId(), request.getStatus());
 		return response;
 	}
 

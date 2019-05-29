@@ -2,6 +2,7 @@ package com.ing.request;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SaveAccountRequest implements Serializable{
@@ -13,12 +14,14 @@ public class SaveAccountRequest implements Serializable{
 	private String fName;
 	private String lName;
 	private Long mobile;
+	@JsonProperty(value = "eMail_id")
 	private String email_id;
 	private String panCard_no;
 	private String userName;
 	@JsonProperty(value = "Password")
 	private String password;
 	private String accType;
+	@JsonIgnore
 	private String userId;
 	
 	public String getfName() {
