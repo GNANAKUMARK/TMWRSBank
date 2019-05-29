@@ -30,7 +30,7 @@ public class Account implements Serializable {
 	String lastName;
 	
 	@Column(name="Mobile")
-	String mobile;
+	Long mobile;
 	
 	@Column(name="UserName")
 	String userName;
@@ -46,7 +46,7 @@ public class Account implements Serializable {
 	String accountType;
 	
 	@Column(name="Balance")
-	double balance;
+	Double balance;
 	
 	@Column(name="Status")
 	String status;
@@ -81,11 +81,11 @@ public class Account implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getMobile() {
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
 
@@ -121,11 +121,11 @@ public class Account implements Serializable {
 		this.accountType = accountType;
 	}
 
-	public double getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(Double balance) {
 		this.balance = balance;
 	}
 

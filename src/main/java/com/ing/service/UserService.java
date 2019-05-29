@@ -1,5 +1,8 @@
 package com.ing.service;
 
-public interface UserService {
+import com.ing.request.SaveAccountRequest;
+import com.ing.response.SaveAccountResponse;
 
+public interface UserService {
+	public SaveAccountResponse saveAccount(SaveAccountRequest request);
 }
