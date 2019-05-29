@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ing.entity.Account;
+import com.ing.entity.Transaction;
 import com.ing.request.SaveAccountRequest;
 import com.ing.response.SaveAccountResponse;
+import com.ing.response.SaveFundTransferResponse;
 import com.ing.response.UpdateAccountRequest;
+import com.ing.service.FundTransferService;
 import com.ing.service.UserService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -22,6 +25,9 @@ public class UserController {
 	
 	@Autowired
 	UserService service;
+	
+	@Autowired
+	FundTransferService fundService;
 	
 	@PostMapping(value = "/addaccount")
 	public SaveAccountResponse saveAccount(@RequestBody SaveAccountRequest request) {
@@ -56,6 +62,21 @@ public class UserController {
 	  
 	  return list;
 	 }
+	
+	@PostMapping("/fundtranfer")
+	public SaveFundTransferResponse fundTransfer(@RequestBody Transaction transaction) {
+		String trans = fundService.saveTransaction(transaction);
+		SaveFundTransferResponse response = new SaveFundTransferResponse();
+		if(trans.equalsIgnoreCase("Insufficient Balance") ){
+			 response.setStatus("failed to save");
+			 return response;
+		}
+		else {
+			response.setStatus("success");
+			return response;
+		}
+	}
+	
 
 	
 

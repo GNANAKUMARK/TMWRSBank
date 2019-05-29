@@ -191,6 +191,22 @@ public class Account implements Serializable {
 		this.emailId = emailId;
 	}
 	
-	
+	public Account(Integer id, String firstName, String lastName, long mobile, String userName, String pan,
+			String password, String accountType, double balance, String status, String updatedBy, String emailId) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobile = mobile;
+		this.userName = userName;
+		this.pan = pan;
+		this.password = password;
+		this.accountType = accountType;
+		this.balance = balance;
+		this.status = status;
+		this.updatedBy = updatedBy;
+		this.emailId = emailId;
+	}
+
 
 }

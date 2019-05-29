@@ -13,5 +13,8 @@ public interface UserDao extends JpaRepository<Account, Integer> {
 	@Modifying
 	@Query(value="update Account set Status=?2 where id=?1",nativeQuery=true)
 	public void updateAccount(String userId, String status);
+	
+	Account findAccountById(int userId);
+
 
 }

@@ -13,4 +13,6 @@ public interface UserService {
 	public SaveAccountResponse saveAccount(SaveAccountRequest request);
 	public SaveAccountResponse updateAccount(@RequestBody UpdateAccountRequest request);
 	public List<Account> findAll();
+	Account getAccountById(int id);
+
 }

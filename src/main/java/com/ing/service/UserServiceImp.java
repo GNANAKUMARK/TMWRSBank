@@ -49,5 +49,11 @@ public class UserServiceImp implements UserService {
 	 public List<Account> findAll() {
 	  return repo.findAll();
 	 }
+	 
+	 public Account getAccountById(int id) {
+			
+			return repo.findAccountById(id);
+		}
+
 
 }
